@@ -1,5 +1,6 @@
 import React from "react";
 import "./Login.scss";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
@@ -28,10 +29,14 @@ const Login = () => {
               <input type="submit" className="btnSubmit" value="Login" />
             </div>
             <div className="form-group">
-              <a href="#" className="ForgetPwd">
+              <Link to="/forgotPassword" className="ForgetPwd">
                 Forget Password?
-              </a>
+              </Link>
             </div>
+
+            <Link to="/register" className="ForgetPwd">
+              Not Registered?
+            </Link>
           </form>
         </div>
         <div className="col-md-6 login-form-2">
