@@ -89,7 +89,7 @@ const Register = () => {
 
   return (
     <>
-      {!success ? (
+      {success ? (
         <section className="SuccessScreen">
           <h1>Your account have been created successfully!</h1>
           <p>
