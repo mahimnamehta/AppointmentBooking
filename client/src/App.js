@@ -10,6 +10,7 @@ import Admin from "./Components/Admin";
 import Missing from "./Components/Missing";
 import RequireAuth from "./Components/RequireAuth";
 import Register from "./Features/Register/Register";
+import Availability from "./Features/Availibility/Availability";
 
 function App() {
   const ROLES = {
@@ -22,6 +23,7 @@ function App() {
       <Route path="/" element={<Layout />}>
         {/* public routes */}
         <Route path="login" element={<Login />} />
+        <Route path="/bookAnAppointment" element={<Availability />} />
         <Route path="register" element={<Register />} />
         <Route path="linkpage" element={<LinkPage />} />
         <Route path="/" element={<Landing />} />

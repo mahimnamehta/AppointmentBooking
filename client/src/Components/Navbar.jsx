@@ -4,6 +4,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const navigateLogin = () => navigate("/login");
   const navigateRegister = () => navigate("/register");
+  const navigateBook = () => navigate("/bookAnAppointment");
 
   return (
     <div className="header_section">
@@ -44,6 +45,9 @@ const Navbar = () => {
           </button>
           <button className="btn btn-dark p-2 m-2" onClick={navigateRegister}>
             Register
+          </button>
+          <button className="btn btn-light p-2 m-2" onClick={navigateBook}>
+            Book An Appointment
           </button>
         </div>
       </nav>
