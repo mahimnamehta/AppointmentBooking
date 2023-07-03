@@ -1,17 +1,17 @@
 import { createContext } from "react";
 import "./App.css";
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
-import Header from "./components/Home/Header/Header";
-import Footer from "./components/Shared/Footer/Footer";
-import Home from "./components/Home/Home/Home";
-import SignInForm from "./components/Login/LoginMain/SignInForm";
-import Dashboard from "./components/Dashboard/Dashboard/Dashboard";
-import AppointMent from "./components/AppointMent/AppointMent/AppointMent";
-import AllPatients from "./components/AppointMent/AllPatients/AllPatients";
-import AddDoctor from "./components/Dashboard/AddDoctor/AddDoctor";
-import DoctorList from "./components/Dashboard/DoctorList/DoctorList";
-import AddReview from "./components/Dashboard/My Review/AddReview";
-import PrivateRoute from "./components/Login/PrivateRoute/PrivateRoute";
+import Header from "./Components/Home/Header/Header";
+import Footer from "./Shared/Footer/Footer";
+import Home from "./Components/Home/Home/Home";
+import SignInForm from "./Components/Login/LoginMain/SignInForm";
+import Dashboard from "./Components/Dashboard/Dashboard/Dashboard";
+import AppointMent from "./Components/Appointment/AppointMent/AppointMent";
+import AllPatients from "./Components/Appointment/AllPatients/AllPatients";
+import AddDoctor from "./Components/Dashboard/AddDoctor/AddDoctor";
+import DoctorList from "./Components/Dashboard/DoctorList/DoctorList";
+import AddReview from "./Components/Dashboard/My Review/AddReview";
+import PrivateRoute from "./Components/Login/PrivateRoute/PrivateRoute";
 
 // import PageNotFound from './components/Shared/PageNotFound/PageNotFound.jsx';
 // import PreLoad from './components/Shared/Preload/PreLoad';
