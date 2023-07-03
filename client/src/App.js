@@ -1,52 +1,51 @@
-import { Route, Routes } from "react-router-dom";
-import Landing from "./Pages/Landing";
-import Login from "./Features/Login/Login";
-import Layout from "./Components/Layout";
-import LinkPage from "./Components/LinkPage";
-import Unauthorized from "./Components/Unauthorized";
-import PersistLogin from "./Components/PersistLogin";
-import Doctor from "./Components/Doctors";
-import Admin from "./Components/Admin";
-import Missing from "./Components/Missing";
-import RequireAuth from "./Components/RequireAuth";
-import Register from "./Features/Register/Register";
-import Availability from "./Features/Availibility/Availability";
+import { createContext } from "react";
+import "./App.css";
+import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
+import Header from "./components/Home/Header/Header";
+import Footer from "./components/Shared/Footer/Footer";
+import Home from "./components/Home/Home/Home";
+import SignInForm from "./components/Login/LoginMain/SignInForm";
+import Dashboard from "./components/Dashboard/Dashboard/Dashboard";
+import AppointMent from "./components/AppointMent/AppointMent/AppointMent";
+import AllPatients from "./components/AppointMent/AllPatients/AllPatients";
+import AddDoctor from "./components/Dashboard/AddDoctor/AddDoctor";
+import DoctorList from "./components/Dashboard/DoctorList/DoctorList";
+import AddReview from "./components/Dashboard/My Review/AddReview";
+import PrivateRoute from "./components/Login/PrivateRoute/PrivateRoute";
+
+// import PageNotFound from './components/Shared/PageNotFound/PageNotFound.jsx';
+// import PreLoad from './components/Shared/Preload/PreLoad';
+
+// const Home = lazy(() => import('./components/Home/Home/Home'))
+
+export const UserContext = createContext();
+
+const router = createBrowserRouter([
+  { path: "/", element: <Home /> },
+  { path: "/login", element: <SignInForm /> },
+  { path: "/dashboard", element: <Dashboard /> },
+  { path: "/patients", element: <AllPatients /> },
+  { path: "/addDoctor", element: <AddDoctor /> },
+  { path: "/doctors", element: <DoctorList /> },
+  { path: "/auth/review", element: <AddReview /> },
+  {
+    path: "/appointment",
+    element: (
+      <PrivateRoute>
+        <AppointMent />
+      </PrivateRoute>
+    ),
+  },
+]);
 
 function App() {
-  const ROLES = {
-    Patient: 2001,
-    Doctor: 1984,
-    Admin: 5150,
-  };
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        {/* public routes */}
-        <Route path="login" element={<Login />} />
-        <Route path="/bookAnAppointment" element={<Availability />} />
-        <Route path="register" element={<Register />} />
-        <Route path="linkpage" element={<LinkPage />} />
-        <Route path="/" element={<Landing />} />
-        <Route path="unauthorized" element={<Unauthorized />} />
-
-        {/* we want to protect these routes */}
-        <Route element={<PersistLogin />}>
-          <Route element={<RequireAuth allowedRoles={[ROLES.User]} />}></Route>
-
-          <Route element={<RequireAuth allowedRoles={[ROLES.Editor]} />}>
-            <Route path="editor" element={<Doctor />} />
-          </Route>
-
-          <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
-            <Route path="admin" element={<Admin />} />
-          </Route>
-        </Route>
-
-        {/* catch all */}
-        <Route path="*" element={<Missing />} />
-      </Route>
-    </Routes>
+    <div>
+      <RouterProvider router={router} />
+    </div>
+    // <Suspense fallback={<PreLoad />}>
+    // <Route exact path="*">
+    // <PageNotFound />
   );
 }
-
 export default App;
